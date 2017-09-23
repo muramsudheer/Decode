@@ -13,6 +13,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var languagePickOne: UIPickerView!   // Foreign language
     @IBOutlet weak var languagePickTwo: UIPickerView!   // Your language
     
+    var selectedLang1 = "Spanish"
+    var selectedLang2 = "Chinese"
+    
     var languages = ["Spanish", "Arabic", "Chinese"]    // Select language
     
     var languages2 = ["Spanish", "Arabic", "Chinese"]    // Select language
@@ -22,8 +25,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
         
         languagePickOne.delegate = self
-        
         languagePickOne.dataSource = self
+        
+        languagePickTwo.delegate = self
+        languagePickTwo.dataSource = self
         
     }
     
@@ -37,7 +42,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return languages[row]
+        if languagePickOne.tag == 0 {
+            return languages[row]
+        }
+        
+        else if languagePickTwo.tag == 1 {
+            return languages2[row]
+        }
+        
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -52,9 +65,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let languageVal = [languages[row]] as [String]
-        print(languageVal)
-        UserDefaults.standard.set(languageVal, forKey: "languageVal")
+        
+        if pickerView.tag == 0 {
+            selectedLang1 = languages[row]
+            UserDefaults.standard.set(selectedLang1, forKey: "selectedLang1")
+        }
+        
+        else {
+            self.selectedLang2 = self.languages2[row]
+            UserDefaults.standard.set(selectedLang2, forKey: "selectedLang2")
+        }
+        
     }
 
 }

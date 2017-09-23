@@ -13,6 +13,7 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var outputText: UILabel!
+    @IBOutlet weak var `return`: UIButton!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "es"))!
     
