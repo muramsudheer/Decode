@@ -12,6 +12,7 @@
 		2A33F4E81F761FB3002E2E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A33F4E61F761FB3002E2E2B /* Main.storyboard */; };
 		2A33F4EA1F761FB3002E2E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A33F4E91F761FB3002E2E2B /* Assets.xcassets */; };
 		2A33F4ED1F761FB3002E2E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A33F4EB1F761FB3002E2E2B /* LaunchScreen.storyboard */; };
+		2A33F4F51F76B869002E2E2B /* TranslatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A33F4F41F76B869002E2E2B /* TranslatorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2A33F4E91F761FB3002E2E2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A33F4EC1F761FB3002E2E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A33F4EE1F761FB3002E2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A33F4F41F76B869002E2E2B /* TranslatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				2A33F4E21F761FB3002E2E2B /* AppDelegate.swift */,
 				2A33F4E41F761FB3002E2E2B /* ViewController.swift */,
+				2A33F4F41F76B869002E2E2B /* TranslatorController.swift */,
 				2A33F4E61F761FB3002E2E2B /* Main.storyboard */,
 				2A33F4E91F761FB3002E2E2B /* Assets.xcassets */,
 				2A33F4EB1F761FB3002E2E2B /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				2A33F4E51F761FB3002E2E2B /* ViewController.swift in Sources */,
 				2A33F4E31F761FB3002E2E2B /* AppDelegate.swift in Sources */,
+				2A33F4F51F76B869002E2E2B /* TranslatorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 				2A33F4F31F761FB3002E2E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

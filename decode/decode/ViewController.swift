@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var languages = ["Spanish", "Arabic", "Chinese"]    // Select language
     
+    var languages2 = ["Spanish", "Arabic", "Chinese"]    // Select language
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,13 +27,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if let saved = UserDefaults.standard.object(forKey: "languageVal") as? String {
-            languagePickOne.
-        }
-    }
     
-    @IBOutlet weak var doneButton: UIButton!       // Done button
+    @IBOutlet weak var doneButton: UIButton!   // Done button
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,7 +52,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let languageVal = languages[row] as String
+        let languageVal = [languages[row]] as [String]
         print(languageVal)
         UserDefaults.standard.set(languageVal, forKey: "languageVal")
     }
