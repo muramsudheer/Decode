@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +23,10 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0R-rP-EhM">
                                 <rect key="frame" x="0.0" y="383" width="375" height="284"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="1hK-hv-9Zy"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="sq0-7h-z9P"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9j-OZ-86D">
                                 <rect key="frame" x="0.0" y="283" width="375" height="100"/>
@@ -37,6 +41,10 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7n-4P-iHu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6dJ-ld-sx1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UTo-DR-kwX"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,6 +64,10 @@
                             <constraint firstAttribute="trailing" secondItem="X9j-OZ-86D" secondAttribute="trailing" id="xdn-Yf-yTm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="languagePickOne" destination="J7n-4P-iHu" id="weE-5f-Qc7"/>
+                        <outlet property="languagePickTwo" destination="T0R-rP-EhM" id="ugA-jz-XBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
