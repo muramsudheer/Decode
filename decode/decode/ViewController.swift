@@ -16,9 +16,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedLang1 = "Spanish"
     var selectedLang2 = "Chinese"
     
-    var languages = ["Spanish", "Arabic", "Chinese"]    // Select language
+    var languages = ["English", "Spanish", "French", "Arabic", "Portuguese", "Korean", "Russian", "German"]    // Select language
+    let langCode = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
     
-    var languages2 = ["Spanish", "Arabic", "Chinese"]    // Select language
+    var languages2 = ["English", "Spanish", "French", "Arabic", "Portuguese", "Korean", "Russian", "German"]    // Select language
+    let langCode2 = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +70,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         if pickerView.tag == 0 {
-            selectedLang1 = languages[row]
+            selectedLang1 = langCode[row]
             UserDefaults.standard.set(selectedLang1, forKey: "selectedLang1")
-        }
-        
-        else {
-            self.selectedLang2 = self.languages2[row]
+        } else {
+            self.selectedLang2 = self.langCode2[row]
             UserDefaults.standard.set(selectedLang2, forKey: "selectedLang2")
         }
         

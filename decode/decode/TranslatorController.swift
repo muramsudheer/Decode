@@ -15,7 +15,11 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet weak var outputText: UILabel!
     @IBOutlet weak var `return`: UIButton!
     
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "es"))!
+    var selectedLanguage = "en_US"
+    var selectedLanguage2 = "en_US"
+
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: UserDefaults.standard.string(forKey: "selectedLang1")!))!
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -23,6 +27,17 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        selectedLanguage = UserDefaults.standard.string(forKey: "selectedLang1")!
+//        selectedLanguage2 = UserDefaults.standard.string(forKey: "selectedLang2")!
+        
+        self.recordButton.layer.masksToBounds = false
+        self.recordButton.layer.shadowColor = UIColor(red:0.54, green:0.54, blue:0.54, alpha:1.0).cgColor
+        self.recordButton.layer.shadowOpacity = 1
+        self.recordButton.layer.shadowOffset = CGSize(width: -1, height: 1)
+        self.recordButton.layer.shadowRadius = 3
+        
+        self.recordButton.layer.shouldRasterize = true
         
         speechRecognizer.delegate = self
         
@@ -139,6 +154,7 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         
     }
+    
 
     /*
     // MARK: - Navigation

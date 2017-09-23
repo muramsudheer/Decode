@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,15 +90,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-Fc-uhH">
-                                <rect key="frame" x="137" y="493" width="100" height="86"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-Fc-uhH">
+                                <rect key="frame" x="137" y="479" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="NNR-yF-PzN"/>
-                                    <constraint firstAttribute="height" constant="86" id="YQN-mx-oNe"/>
+                                    <constraint firstAttribute="height" constant="100" id="YQN-mx-oNe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <state key="normal" title="Record">
+                                <state key="normal" image="recordButton">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -114,12 +112,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOI-co-u0R">
-                                <rect key="frame" x="16" y="20" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Return">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOI-co-u0R">
+                                <rect key="frame" x="16" y="20" width="87" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="EEW-8e-sfK"/>
+                                    <constraint firstAttribute="width" constant="87" id="Tuq-Mw-Jz1"/>
+                                </constraints>
+                                <state key="normal" image="backButton">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -131,10 +130,12 @@
                         <constraints>
                             <constraint firstItem="dVw-bB-2ID" firstAttribute="top" secondItem="cHh-Fc-uhH" secondAttribute="bottom" constant="88" id="H9L-Yq-Ykm"/>
                             <constraint firstItem="jrD-Pf-ary" firstAttribute="centerX" secondItem="fDW-uZ-7Eb" secondAttribute="centerX" id="HVc-cE-tcD"/>
+                            <constraint firstItem="NOI-co-u0R" firstAttribute="leading" secondItem="fDW-uZ-7Eb" secondAttribute="leadingMargin" id="Rp7-hr-A5W"/>
                             <constraint firstItem="jrD-Pf-ary" firstAttribute="leading" secondItem="fDW-uZ-7Eb" secondAttribute="leadingMargin" constant="23" id="c95-ia-ahR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jrD-Pf-ary" secondAttribute="trailing" constant="24" id="dlj-Ro-Rdl"/>
                             <constraint firstItem="jrD-Pf-ary" firstAttribute="top" secondItem="mTq-kC-Ebh" secondAttribute="bottom" constant="55" id="pfw-gO-I5j"/>
                             <constraint firstItem="cHh-Fc-uhH" firstAttribute="centerX" secondItem="fDW-uZ-7Eb" secondAttribute="centerX" id="tLl-BG-rPy"/>
+                            <constraint firstItem="NOI-co-u0R" firstAttribute="top" secondItem="mTq-kC-Ebh" secondAttribute="bottom" id="xDB-dO-Wsi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -145,7 +146,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8c-wQ-sfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842.39999999999998" y="137.18140929535232"/>
+            <point key="canvasLocation" x="692" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backButton" width="422" height="136"/>
+        <image name="recordButton" width="302" height="302"/>
+    </resources>
 </document>
