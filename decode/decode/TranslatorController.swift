@@ -8,6 +8,8 @@
 
 import UIKit
 import Speech
+import AVFoundation
+import SwiftyJSON
 
 class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
 
@@ -16,8 +18,18 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet weak var `return`: UIButton!
     @IBOutlet weak var tabView: UIView!
     
+    let langControl = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
+    var selectedItemArrayNumber = 0;
+    var selectedItemArray = "en_US";
+    
     var selectedLanguage = "en_US"
     var selectedLanguage2 = "en_US"
+    
+    let session = URLSession.shared
+    var googleAPIKey = "AIzaSyBQva5NmnTqXfmRW4fIFqKIzvLYCz2pGjA"
+    var googleURL: URL {
+        return URL(string: "https://language.googleapis.com/v1/documents:analyzeEntities?key=\(googleAPIKey)")!
+    }
     
     let translator = Translator(subscriptionKey: "43936858599b473babbe5ac2ecab16fb")
     
@@ -29,6 +41,10 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectedItemArrayNumber = UserDefaults.standard.integer(forKey: "arrayVal")
+        selectedItemArray = langControl[selectedItemArrayNumber];
+
         
 //        selectedLanguage = UserDefaults.standard.string(forKey: "selectedLang1")!
 //        selectedLanguage2 = UserDefaults.standard.string(forKey: "selectedLang2")!
@@ -131,6 +147,8 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
                 
                 self.outputText.text = result?.bestTranscription.formattedString  //9
                 
+                self.createRequest()
+                
                 self.translator.translate(input: (result?.bestTranscription.formattedString)!, to: UserDefaults.standard.string(forKey: "selectedLang2")!) { (result) in
                     switch result {
                     case .success(let translation):
@@ -167,13 +185,61 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
             print("audioEngine couldn't start because of an error.")
         }
         
-        outputText.text = "Say something, I'm listening!"
+        outputText.text = "Say something"
         
     }
+    
+    @IBAction func speakText(_ sender: UIButton) {
+        let aud = outputText.text
+        let utterance = AVSpeechUtterance(string: aud!)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en_US")
+        
+        utterance.rate = 0.35
+        
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+    }
+    
     
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         
     }
+    
+    
+    func createRequest() {
+        // Create our request URL
+        
+        var request = URLRequest(url: googleURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        // Build our API request
+        let jsonRequest = [
+            "requests": [
+                ["encodingType": "UTF8",
+                 "document": [
+                    "type": "PLAIN_TEXT",
+                    "content": outputText.text
+                    ]
+                ]
+            ]
+            
+        ]
+        let jsonObject = JSON(jsonDictionary: jsonRequest)
+        //let jsonObject = JSONSerialization.jsonObject(with: jsonRequest, options: []) as? [String : Any]
+        
+        // Serialize the JSON
+        guard let data = try? jsonObject.rawData() else {
+            return
+        }
+        
+        request.httpBody = data
+        print(data)
+        
+    }
+
+    
     
     
 

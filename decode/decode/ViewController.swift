@@ -72,9 +72,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if pickerView.tag == 0 {
             selectedLang1 = langCode[row]
             UserDefaults.standard.set(selectedLang1, forKey: "selectedLang1")
+            UserDefaults.standard.set(row, forKey: "arrayVal")
         } else {
             self.selectedLang2 = self.langCode2[row]
             UserDefaults.standard.set(selectedLang2, forKey: "selectedLang2")
+            UserDefaults.standard.set(row, forKey: "arrayVal")
         }
         
     }
