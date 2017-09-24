@@ -13,6 +13,7 @@
 		2A33F4EA1F761FB3002E2E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A33F4E91F761FB3002E2E2B /* Assets.xcassets */; };
 		2A33F4ED1F761FB3002E2E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A33F4EB1F761FB3002E2E2B /* LaunchScreen.storyboard */; };
 		2A33F4F51F76B869002E2E2B /* TranslatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A33F4F41F76B869002E2E2B /* TranslatorController.swift */; };
+		2A33F4F71F7771DC002E2E2B /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A33F4F61F7771DC002E2E2B /* Translator.swift */; };
 		979737132796A43F9E5D0CBD /* Pods_decode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5829101901DC7A6065032F /* Pods_decode.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		2A33F4EC1F761FB3002E2E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A33F4EE1F761FB3002E2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A33F4F41F76B869002E2E2B /* TranslatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorController.swift; sourceTree = "<group>"; };
+		2A33F4F61F7771DC002E2E2B /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		6A394EF9FE46D2FD8C9C9FB8 /* Pods-decode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-decode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-decode/Pods-decode.debug.xcconfig"; sourceTree = "<group>"; };
 		9C5829101901DC7A6065032F /* Pods_decode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_decode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90817157145E6B5CC795A9F /* Pods-decode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-decode.release.xcconfig"; path = "Pods/Target Support Files/Pods-decode/Pods-decode.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				2A33F4E21F761FB3002E2E2B /* AppDelegate.swift */,
 				2A33F4E41F761FB3002E2E2B /* ViewController.swift */,
 				2A33F4F41F76B869002E2E2B /* TranslatorController.swift */,
+				2A33F4F61F7771DC002E2E2B /* Translator.swift */,
 				2A33F4E61F761FB3002E2E2B /* Main.storyboard */,
 				2A33F4E91F761FB3002E2E2B /* Assets.xcassets */,
 				2A33F4EB1F761FB3002E2E2B /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A33F4E51F761FB3002E2E2B /* ViewController.swift in Sources */,
+				2A33F4F71F7771DC002E2E2B /* Translator.swift in Sources */,
 				2A33F4E31F761FB3002E2E2B /* AppDelegate.swift in Sources */,
 				2A33F4F51F76B869002E2E2B /* TranslatorController.swift in Sources */,
 			);

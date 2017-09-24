@@ -8,7 +8,6 @@
 
 import UIKit
 import Speech
-import Alamofire
 
 class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
 
@@ -19,8 +18,7 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     var selectedLanguage = "en_US"
     var selectedLanguage2 = "en_US"
     
-    var searchURL = "https://api.microsofttranslator.com/V2/Http.svc/Translate"
-
+    let translator = Translator(subscriptionKey: "43936858599b473babbe5ac2ecab16fb")
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: UserDefaults.standard.string(forKey: "selectedLang1")!))!
     
@@ -30,8 +28,6 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        callAlamo(url:searchURL)
         
 //        selectedLanguage = UserDefaults.standard.string(forKey: "selectedLang1")!
 //        selectedLanguage2 = UserDefaults.standard.string(forKey: "selectedLang2")!
@@ -125,6 +121,16 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
             if result != nil {
                 
                 self.outputText.text = result?.bestTranscription.formattedString  //9
+                
+                self.translator.translate(input: (result?.bestTranscription.formattedString)!, to: UserDefaults.standard.string(forKey: "selectedLang2")!) { (result) in
+                    switch result {
+                    case .success(let translation):
+                        self.outputText.text = translation
+                    case .failure(let error):
+                        self.outputText.text = "There seems to be an error"
+                    }
+                }
+                
                 isFinal = (result?.isFinal)!
             }
             
@@ -159,5 +165,7 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         
     }
+    
+    
 
 }

@@ -17,10 +17,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedLang2 = "Chinese"
     
     var languages = ["English", "Spanish", "French", "Arabic", "Portuguese", "Korean", "Russian", "German"]    // Select language
-    let langCode = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
+    let langCode = ["en", "es", "fr", "ar", "pt", "ko", "ru", "de"]
     
     var languages2 = ["English", "Spanish", "French", "Arabic", "Portuguese", "Korean", "Russian", "German"]    // Select language
-    let langCode2 = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
+    let langCode2 = ["en", "es", "fr", "ar", "pt", "ko", "ru", "de"]
 
     
     override func viewDidLoad() {
