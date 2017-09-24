@@ -159,10 +159,5 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         
     }
-    
-    func callAlamo(url : String) {
-        Alamofire.request(url)
-    }
-    
 
 }
