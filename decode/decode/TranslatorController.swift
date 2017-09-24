@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import Alamofire
 
 class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
 
@@ -17,6 +18,8 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     
     var selectedLanguage = "en_US"
     var selectedLanguage2 = "en_US"
+    
+    var searchURL = "https://api.microsofttranslator.com/V2/Http.svc/Translate"
 
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: UserDefaults.standard.string(forKey: "selectedLang1")!))!
@@ -27,6 +30,8 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        callAlamo(url:searchURL)
         
 //        selectedLanguage = UserDefaults.standard.string(forKey: "selectedLang1")!
 //        selectedLanguage2 = UserDefaults.standard.string(forKey: "selectedLang2")!
@@ -155,15 +160,9 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func callAlamo(url : String) {
+        Alamofire.request(url)
     }
-    */
+    
 
 }
