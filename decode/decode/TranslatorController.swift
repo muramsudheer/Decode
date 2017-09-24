@@ -10,6 +10,7 @@ import UIKit
 import Speech
 import AVFoundation
 import SwiftyJSON
+import Alamofire
 
 class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
 
@@ -18,9 +19,13 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet weak var `return`: UIButton!
     @IBOutlet weak var tabView: UIView!
     
+    var searchURL = "https://westus.api.cognitive.microsoft.com/qnamaker/v2.0/knowledgebases/7e7107d1-6cca-4aa5-90fc-0d128471c2e5/generateAnswer"
+    
     let langControl = ["en_US", "es", "fr_FR", "ar", "pt_PT", "ko_KR", "ru_RU", "de_DE"]
     var selectedItemArrayNumber = 0;
     var selectedItemArray = "en_US";
+    
+    typealias JSONStandard = [String : AnyObject]
     
     var selectedLanguage = "en_US"
     var selectedLanguage2 = "en_US"
@@ -38,6 +43,28 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    
+    // Q&A
+    
+    func callAlamo(url : String) {
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            
+            self.parseData(JSONData: response.data!)
+        })
+        
+    }
+    
+    func parseData(JSONData : Data) {
+        do {
+            let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as? JSONStandard
+            print(readableJSON)
+        }
+        
+        catch {
+            print(error)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,8 +174,6 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
                 
                 self.outputText.text = result?.bestTranscription.formattedString  //9
                 
-                self.createRequest()
-                
                 self.translator.translate(input: (result?.bestTranscription.formattedString)!, to: UserDefaults.standard.string(forKey: "selectedLang2")!) { (result) in
                     switch result {
                     case .success(let translation):
@@ -226,17 +251,6 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
             ]
             
         ]
-        let jsonObject = JSON(jsonDictionary: jsonRequest)
-        //let jsonObject = JSONSerialization.jsonObject(with: jsonRequest, options: []) as? [String : Any]
-        
-        // Serialize the JSON
-        guard let data = try? jsonObject.rawData() else {
-            return
-        }
-        
-        request.httpBody = data
-        print(data)
-        
     }
 
     
