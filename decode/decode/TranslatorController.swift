@@ -14,6 +14,7 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var outputText: UILabel!
     @IBOutlet weak var `return`: UIButton!
+    @IBOutlet weak var tabView: UIView!
     
     var selectedLanguage = "en_US"
     var selectedLanguage2 = "en_US"
@@ -34,11 +35,19 @@ class TranslatorController: UIViewController, SFSpeechRecognizerDelegate {
         
         self.recordButton.layer.masksToBounds = false
         self.recordButton.layer.shadowColor = UIColor(red:0.54, green:0.54, blue:0.54, alpha:1.0).cgColor
-        self.recordButton.layer.shadowOpacity = 1
+        self.recordButton.layer.shadowOpacity = 0.6
         self.recordButton.layer.shadowOffset = CGSize(width: -1, height: 1)
-        self.recordButton.layer.shadowRadius = 3
+        self.recordButton.layer.shadowRadius = 20
         
         self.recordButton.layer.shouldRasterize = true
+        
+        self.tabView.layer.masksToBounds = false
+        self.tabView.layer.shadowColor = UIColor(red:0.54, green:0.54, blue:0.54, alpha:1.0).cgColor
+        self.tabView.layer.shadowOpacity = 0.4
+        self.tabView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        self.tabView.layer.shadowRadius = 20
+        
+        self.tabView.layer.shouldRasterize = true
         
         speechRecognizer.delegate = self
         
