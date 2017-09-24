@@ -129,7 +129,6 @@
 				TargetAttributes = {
 					2A33F4DE1F761FB3002E2E2B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FTX86VU7B2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -345,7 +344,7 @@
 			baseConfigurationReference = 6A394EF9FE46D2FD8C9C9FB8 /* Pods-decode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FTX86VU7B2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = decode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehul.decode;
@@ -359,7 +358,7 @@
 			baseConfigurationReference = E90817157145E6B5CC795A9F /* Pods-decode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FTX86VU7B2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = decode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehul.decode;
