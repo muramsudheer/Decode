@@ -1,5 +1,4 @@
-# MHacks2017
+# Decode
 
-## Decode - Realtime Translation App
+A groundbreaking way to communicate face-to-face with people who speak different languages in real-time.
 
-### Winner of MHacks 2017 - Most Innovative Hack
